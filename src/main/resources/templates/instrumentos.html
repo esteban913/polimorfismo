@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manipulación de Instrumentos</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            color: #222;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .encabezado {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .encabezado h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .encabezado p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .musico {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        .musico h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .instrumento {
+            background: #f7f8fa;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .instrumento p {
+            margin-bottom: 8px;
+        }
+
+        .acciones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .accion {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 18px;
+            background: #fff;
+        }
+
+        .accion h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .accion p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 800px) {
+
+            .acciones {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 20px;
+            }
+
+            .encabezado h1 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="encabezado">
+
+        <h1>🎵 Manipulación de Instrumentos</h1>
+
+        <p>
+            Ejemplo de polimorfismo utilizando guitarristas,
+            pianistas y violinistas
+        </p>
+
+    </div>
+
+
+    <!--
+        Recorremos los resultados enviados
+        desde InstrumentoController
+    -->
+
+    <div class="musico"
+         th:each="resultado : ${resultados}">
+
+        <!-- Nombre de la clase concreta -->
+
+        <h2 th:text="${resultado.musico}">
+            Guitarrista
+        </h2>
+
+
+        <!-- Información del instrumento -->
+
+        <div class="instrumento">
+
+            <p>
+                <strong>Instrumento:</strong>
+                <span th:text="${resultado.instrumento.nombre}">
+                    Guitarra
+                </span>
+            </p>
+
+            <p>
+                <strong>Marca:</strong>
+                <span th:text="${resultado.instrumento.marca}">
+                    Yamaha
+                </span>
+            </p>
+
+            <p>
+                <strong>Tipo:</strong>
+                <span th:text="${resultado.instrumento.tipo}">
+                    Acústica
+                </span>
+            </p>
+
+        </div>
+
+
+        <!--
+            Los tres métodos heredados
+            de las interfaces
+        -->
+
+        <div class="acciones">
+
+
+            <!-- Afinar -->
+
+            <div class="accion">
+
+                <h3>🎼 Afinar</h3>
+
+                <p th:text="${resultado.mensajeAfinar}">
+                    Mensaje de afinación
+                </p>
+
+            </div>
+
+
+            <!-- Tocar melodía -->
+
+            <div class="accion">
+
+                <h3>🎵 Tocar melodía</h3>
+
+                <p th:text="${resultado.mensajeMelodia}">
+                    Mensaje de melodía
+                </p>
+
+            </div>
+
+
+            <!-- Improvisar -->
+
+            <div class="accion">
+
+                <h3>🎸 Improvisar</h3>
+
+                <p th:text="${resultado.mensajeImprovisar}">
+                    Mensaje de improvisación
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
