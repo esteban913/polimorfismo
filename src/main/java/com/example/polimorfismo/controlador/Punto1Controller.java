@@ -1,10 +1,6 @@
 package com.example.polimorfismo.controlador;
 
-import com.example.polimorfismo.modelo.Guitarrista;
-import com.example.polimorfismo.modelo.Instrumento;
 import com.example.polimorfismo.modelo.ManipuladorInstrumento;
-import com.example.polimorfismo.modelo.Pianista;
-import com.example.polimorfismo.modelo.Violinista;
 import com.example.polimorfismo.repositories.InstrumentoRepository;
 
 import org.springframework.stereotype.Controller;
@@ -13,18 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
-public class InstrumentoController {
+public class Punto1Controller {
 
     private final InstrumentoRepository repository;
 
-    public InstrumentoController() {
+    public Punto1Controller() {
         repository = new InstrumentoRepository();
     }
 
-    @GetMapping("/")
-    public String mostrarInstrumentos(Model model) {
+    @GetMapping("/punto1")
+    public String punto1(Model model) {
 
         List<ManipuladorInstrumento> manipuladores =
                 new ArrayList<>();
@@ -33,11 +30,12 @@ public class InstrumentoController {
         manipuladores.addAll(repository.getPianistas());
         manipuladores.addAll(repository.getViolinistas());
 
-        model.addAttribute(
-                "manipuladores",
-                manipuladores
-        );
+        String nombres = manipuladores.stream()
+                .map(ManipuladorInstrumento::getNombre)
+                .collect(Collectors.joining(", "));
 
-        return "instrumentos";
+        model.addAttribute("nombres", nombres);
+
+        return "punto1";
     }
 }

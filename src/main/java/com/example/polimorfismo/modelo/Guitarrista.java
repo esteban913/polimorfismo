@@ -1,38 +1,44 @@
 package com.example.polimorfismo.modelo;
 
+import java.util.List;
+
 public class Guitarrista implements ManipuladorInstrumento {
 
-    private Instrumento instrumento;
+    private String nombre;
+    private List<Instrumento> instrumentos;
 
-    public Guitarrista(Instrumento instrumento) {
-        this.instrumento = instrumento;
-    }
-
-    @Override
-    public String afinar(Instrumento instrumento) {
-        return "El guitarrista está afinando la "
-                + this.instrumento.getNombre()
-                + " de marca "
-                + this.instrumento.getMarca()
-                + ", tipo "
-                + this.instrumento.getTipo() + ".";
-    }
-    @Override
-    public String tocarMelodia(Instrumento instrumento) {
-        return "El guitarrista está tocando una melodía con la "
-                + this.instrumento.getNombre()
-                + " de marca "
-                + this.instrumento.getMarca() + ".";
+    public Guitarrista(String nombre, List<Instrumento> instrumentos) {
+        this.nombre = nombre;
+        this.instrumentos = instrumentos;
     }
 
     @Override
-    public String improvisar(Instrumento instrumento) {
-        return "El guitarrista está improvisando con la "
-                + this.instrumento.getNombre()
-                + " de tipo "
-                + this.instrumento.getTipo() + ".";
+    public String getNombre() {
+        return nombre;
     }
-    public Instrumento getInstrumento() {
-        return this.instrumento;
+
+    @Override
+    public String afinar(List<Instrumento> instrumentos) {
+        return "El guitarrista " + nombre +
+                " está afinando " + instrumentos.size() +
+                " instrumento(s).";
+    }
+
+    @Override
+    public String tocarMelodia(List<Instrumento> instrumentos) {
+        return "El guitarrista " + nombre +
+                " está tocando una melodía con " +
+                instrumentos.size() + " instrumento(s).";
+    }
+
+    @Override
+    public String improvisar(List<Instrumento> instrumentos) {
+        return "El guitarrista " + nombre +
+                " está improvisando con " +
+                instrumentos.size() + " instrumento(s).";
+    }
+
+    public List<Instrumento> getInstrumentos() {
+        return instrumentos;
     }
 }

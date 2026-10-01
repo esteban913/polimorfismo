@@ -1,39 +1,44 @@
 package com.example.polimorfismo.modelo;
 
+import java.util.List;
+
 public class Pianista implements ManipuladorInstrumento {
 
-    private Instrumento instrumento;
+    private String nombre;
+    private List<Instrumento> instrumentos;
 
-    public Pianista(Instrumento instrumento) {
-        this.instrumento = instrumento;
+    public Pianista(String nombre, List<Instrumento> instrumentos) {
+        this.nombre = nombre;
+        this.instrumentos = instrumentos;
     }
 
     @Override
-    public String afinar(Instrumento instrumento) {
-        return "El pianista está afinando el "
-                + this.instrumento.getNombre()
-                + " de marca "
-                + this.instrumento.getMarca()
-                + ", tipo "
-                + this.instrumento.getTipo() + ".";
+    public String getNombre() {
+        return nombre;
     }
 
     @Override
-    public String tocarMelodia(Instrumento instrumento) {
-        return "El pianista está tocando una melodía en el "
-                + this.instrumento.getNombre()
-                + " de marca "
-                + this.instrumento.getMarca() + ".";
+    public String afinar(List<Instrumento> instrumentos) {
+        return "El pianista " + nombre +
+                " está afinando " + instrumentos.size() +
+                " instrumento(s).";
     }
 
     @Override
-    public String improvisar(Instrumento instrumento) {
-        return "El pianista está improvisando en el "
-                + this.instrumento.getNombre()
-                + " de tipo "
-                + this.instrumento.getTipo() + ".";
+    public String tocarMelodia(List<Instrumento> instrumentos) {
+        return "El pianista " + nombre +
+                " está tocando una melodía con " +
+                instrumentos.size() + " instrumento(s).";
     }
-    public Instrumento getInstrumento() {
-        return this.instrumento;
+
+    @Override
+    public String improvisar(List<Instrumento> instrumentos) {
+        return "El pianista " + nombre +
+                " está improvisando con " +
+                instrumentos.size() + " instrumento(s).";
+    }
+
+    public List<Instrumento> getInstrumentos() {
+        return instrumentos;
     }
 }

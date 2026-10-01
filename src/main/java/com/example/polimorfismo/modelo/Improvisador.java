@@ -1,6 +1,8 @@
 package com.example.polimorfismo.modelo;
 
+import java.util.List;
+
 public interface Improvisador {
 
-    String improvisar(Instrumento instrumento);
+    String improvisar(List<Instrumento> instrumentos);
 }
