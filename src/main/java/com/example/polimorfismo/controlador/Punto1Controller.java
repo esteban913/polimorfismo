@@ -7,28 +7,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 public class Punto1Controller {
 
-    private final InstrumentoRepository repository;
+    private final InstrumentoRepository repositories;
 
     public Punto1Controller() {
-        repository = new InstrumentoRepository();
+        repositories = new InstrumentoRepository();
     }
 
     @GetMapping("/punto1")
     public String punto1(Model model) {
 
         List<ManipuladorInstrumento> manipuladores =
-                new ArrayList<>();
-
-        manipuladores.addAll(repository.getGuitarristas());
-        manipuladores.addAll(repository.getPianistas());
-        manipuladores.addAll(repository.getViolinistas());
+                repositories.getTodosLosManipuladores();
 
         String nombres = manipuladores.stream()
                 .map(ManipuladorInstrumento::getNombre)

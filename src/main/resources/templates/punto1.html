@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -9,15 +8,9 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Punto 1 - Polimorfismo</title>
+    <title>Punto 1</title>
 
     <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
         body {
             font-family: Arial, sans-serif;
@@ -28,39 +21,32 @@
         .contenedor {
             max-width: 900px;
             margin: auto;
-        }
-
-        .tarjeta {
             background: white;
             padding: 35px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
         }
 
         h1 {
             margin-bottom: 20px;
         }
 
-        .nombres {
-            background: #f7f8fa;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+        .resultado {
+            background: #f8fafc;
             padding: 20px;
+            border-radius: 10px;
             line-height: 1.8;
+            margin-bottom: 25px;
         }
 
         .boton {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 20px;
-            background: #222;
-            color: white;
             text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 12px 20px;
             border-radius: 8px;
-        }
-
-        .boton:hover {
-            background: #444;
+            font-weight: bold;
         }
 
     </style>
@@ -71,26 +57,19 @@
 
 <div class="contenedor">
 
-    <div class="tarjeta">
+    <h1>📌 Punto 1 - Nombres de los manipuladores</h1>
 
-        <h1>
-            Punto 1 - Nombres de los manipuladores
-        </h1>
+    <div class="resultado">
 
-        <div class="nombres">
-
-            <p th:text="${nombres}">
-                Nombres de los manipuladores
-            </p>
-
-        </div>
-
-        <a class="boton"
-           href="/">
-            Volver a instrumentos
-        </a>
+        <p th:text="${nombres}">
+            Guitarrista 1, Guitarrista 2, Guitarrista 3
+        </p>
 
     </div>
+
+    <a href="/" class="boton">
+        ← Regresar
+    </a>
 
 </div>
 

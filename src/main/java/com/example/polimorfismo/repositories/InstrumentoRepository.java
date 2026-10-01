@@ -1,5 +1,6 @@
 package com.example.polimorfismo.repositories;
 
+import com.example.polimorfismo.modelo.ManipuladorInstrumento;
 import com.example.polimorfismo.modelo.Guitarrista;
 import com.example.polimorfismo.modelo.Instrumento;
 import com.example.polimorfismo.modelo.Pianista;
@@ -257,5 +258,24 @@ public class InstrumentoRepository {
 
     public List<Violinista> getViolinistas() {
         return violinistas;
+    }
+    public List<ManipuladorInstrumento> getTodosLosManipuladores() {
+
+        return Arrays.asList(
+                guitarristas.get(0),
+                guitarristas.get(1),
+                guitarristas.get(2),
+                guitarristas.get(3),
+
+                pianistas.get(0),
+                pianistas.get(1),
+                pianistas.get(2),
+                pianistas.get(3),
+
+                violinistas.get(0),
+                violinistas.get(1),
+                violinistas.get(2),
+                violinistas.get(3)
+        );
     }
 }

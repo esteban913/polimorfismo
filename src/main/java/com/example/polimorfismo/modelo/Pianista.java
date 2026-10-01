@@ -18,9 +18,15 @@ public class Pianista implements ManipuladorInstrumento {
     }
 
     @Override
+    public List<Instrumento> getInstrumentos() {
+        return instrumentos;
+    }
+
+    @Override
     public String afinar(List<Instrumento> instrumentos) {
         return "El pianista " + nombre +
-                " está afinando " + instrumentos.size() +
+                " está afinando " +
+                instrumentos.size() +
                 " instrumento(s).";
     }
 
@@ -28,17 +34,15 @@ public class Pianista implements ManipuladorInstrumento {
     public String tocarMelodia(List<Instrumento> instrumentos) {
         return "El pianista " + nombre +
                 " está tocando una melodía con " +
-                instrumentos.size() + " instrumento(s).";
+                instrumentos.size() +
+                " instrumento(s).";
     }
 
     @Override
     public String improvisar(List<Instrumento> instrumentos) {
         return "El pianista " + nombre +
                 " está improvisando con " +
-                instrumentos.size() + " instrumento(s).";
-    }
-
-    public List<Instrumento> getInstrumentos() {
-        return instrumentos;
+                instrumentos.size() +
+                " instrumento(s).";
     }
 }

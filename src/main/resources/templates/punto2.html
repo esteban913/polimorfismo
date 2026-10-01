@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Punto 2</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .estadisticas {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .dato {
+            background: #f8fafc;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dato h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .dato p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .boton {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+
+            .estadisticas {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>📊 Punto 2 - Datos estadísticos</h1>
+
+    <p class="descripcion">
+        Información de las listas de instrumentos de los 12 objetos.
+    </p>
+
+    <div class="estadisticas">
+
+        <div class="dato">
+
+            <h2>Conteo</h2>
+
+            <p th:text="${conteo}">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="dato">
+
+            <h2>Suma total</h2>
+
+            <p th:text="${suma}">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="dato">
+
+            <h2>Promedio</h2>
+
+            <p th:text="${promedio}">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="dato">
+
+            <h2>Mínimo</h2>
+
+            <p th:text="${minimo}">
+                0
+            </p>
+
+        </div>
+
+
+        <div class="dato">
+
+            <h2>Máximo</h2>
+
+            <p th:text="${maximo}">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a href="/" class="boton">
+        ← Regresar
+    </a>
+
+</div>
+
+</body>
+
+</html>

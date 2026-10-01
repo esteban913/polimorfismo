@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Punto 3</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .lista {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .elemento {
+            background: #f8fafc;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .elemento strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .boton {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+
+            .lista {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>📋 Punto 3 - Información de los instrumentos</h1>
+
+    <p class="descripcion">
+        Lista de los instrumentos y sus datos principales.
+    </p>
+
+
+    <div class="lista">
+
+        <div class="elemento"
+             th:each="instrumento : ${instrumentos}">
+
+            <strong th:text="${instrumento.nombre}">
+                Guitarra
+            </strong>
+
+            <span th:text="${instrumento.marca}">
+                Yamaha
+            </span>
+
+            -
+            
+            <span th:text="${instrumento.tipo}">
+                Acústica
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <a href="/" class="boton">
+        ← Regresar
+    </a>
+
+</div>
+
+</body>
+
+</html>

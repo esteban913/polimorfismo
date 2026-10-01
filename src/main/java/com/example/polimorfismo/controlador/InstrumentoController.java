@@ -1,10 +1,6 @@
 package com.example.polimorfismo.controlador;
 
-import com.example.polimorfismo.modelo.Guitarrista;
-import com.example.polimorfismo.modelo.Instrumento;
 import com.example.polimorfismo.modelo.ManipuladorInstrumento;
-import com.example.polimorfismo.modelo.Pianista;
-import com.example.polimorfismo.modelo.Violinista;
 import com.example.polimorfismo.repositories.InstrumentoRepository;
 
 import org.springframework.stereotype.Controller;
@@ -23,7 +19,7 @@ public class InstrumentoController {
         repository = new InstrumentoRepository();
     }
 
-    @GetMapping("/")
+    @GetMapping({"/", "/instrumentos"})
     public String mostrarInstrumentos(Model model) {
 
         List<ManipuladorInstrumento> manipuladores =

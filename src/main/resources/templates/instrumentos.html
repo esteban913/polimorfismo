@@ -2,13 +2,10 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Manipulación de Instrumentos</title>
+    <title>Polimorfismo - Instrumentos</title>
 
     <style>
 
@@ -22,7 +19,7 @@
             font-family: Arial, sans-serif;
             background: #f2f4f7;
             color: #222;
-            padding: 40px;
+            padding: 30px;
         }
 
         .contenedor {
@@ -32,12 +29,16 @@
 
         .encabezado {
             text-align: center;
-            margin-bottom: 40px;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
         }
 
         .encabezado h1 {
             font-size: 36px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .encabezado p {
@@ -45,35 +46,62 @@
             font-size: 18px;
         }
 
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .boton {
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .boton:hover {
+            background: #1d4ed8;
+        }
+
+        .titulo-seccion {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
         .musico {
             background: white;
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
         }
 
         .musico h2 {
-            font-size: 25px;
             margin-bottom: 20px;
+            font-size: 25px;
         }
 
         .instrumentos {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 18px;
         }
 
         .instrumento {
-            background: #f7f8fa;
+            background: #f8fafc;
+            border: 1px solid #ddd;
             border-radius: 10px;
             padding: 18px;
-            border: 1px solid #ddd;
         }
 
         .instrumento h3 {
             margin-bottom: 12px;
+            color: #1d4ed8;
         }
 
         .instrumento p {
@@ -81,21 +109,21 @@
         }
 
         .acciones {
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
         .accion {
-            border: 1px solid #ddd;
+            background: #f8fafc;
             border-radius: 10px;
-            padding: 18px;
-            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
         }
 
         .accion h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         .accion p {
@@ -103,46 +131,28 @@
             line-height: 1.5;
         }
 
-        .sin-instrumentos {
-            background: #fff3cd;
-            border: 1px solid #ffe69c;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .boton {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 20px;
-            background: #222;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .boton:hover {
-            background: #444;
-        }
-
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
 
             .instrumentos,
             .acciones {
                 grid-template-columns: 1fr;
             }
 
+        }
+
+        @media (max-width: 600px) {
+
             body {
-                padding: 20px;
+                padding: 15px;
             }
 
             .encabezado h1 {
                 font-size: 28px;
             }
+
         }
 
     </style>
-
 </head>
 
 <body>
@@ -151,91 +161,89 @@
 
     <div class="encabezado">
 
-        <h1>🎵 Manipulación de Instrumentos</h1>
+        <h1>🎵 Polimorfismo con Instrumentos</h1>
 
         <p>
-            Ejemplo de polimorfismo utilizando
-            guitarristas, pianistas y violinistas
+            Herencia de interfaces aplicada a guitarristas,
+            pianistas y violinistas
         </p>
 
     </div>
 
 
-    <!--
-        Recorremos los 12 manipuladores
-    -->
+    <div class="menu">
+
+        <a href="/punto1" class="boton">
+            Punto 1
+        </a>
+
+        <a href="/punto2" class="boton">
+            Punto 2
+        </a>
+
+        <a href="/punto3" class="boton">
+            Punto 3
+        </a>
+
+        <a href="/punto4" class="boton">
+            Punto 4
+        </a>
+
+        <a href="/punto5" class="boton">
+            Punto 5
+        </a>
+
+    </div>
+
+
+    <h2 class="titulo-seccion">
+        Instrumentos y categorías
+    </h2>
+
 
     <div class="musico"
-         th:each="manipulador : ${manipuladores}">
+         th:each="musico : ${manipuladores}">
 
-        <h2 th:text="${manipulador.nombre}">
+        <h2 th:text="${musico.nombre}">
             Guitarrista 1
         </h2>
 
 
-        <!-- ============================= -->
-        <!-- INSTRUMENTOS DEL MANIPULADOR -->
-        <!-- ============================= -->
+        <div class="instrumentos">
 
-        <div th:if="${manipulador.instrumentos != null and !manipulador.instrumentos.isEmpty()}">
+            <div class="instrumento"
+                 th:each="instrumento : ${musico.instrumentos}">
 
-            <h3>Instrumentos</h3>
+                <h3 th:text="${instrumento.nombre}">
+                    Guitarra
+                </h3>
 
-            <div class="instrumentos">
+                <p>
+                    <strong>Marca:</strong>
+                    <span th:text="${instrumento.marca}">
+                        Yamaha
+                    </span>
+                </p>
 
-                <div class="instrumento"
-                     th:each="instrumento : ${manipulador.instrumentos}">
+                <p>
+                    <strong>Categoría:</strong>
+                    <span th:text="${instrumento.tipo}">
+                        Acústica
+                    </span>
+                </p>
 
-                    <h3 th:text="${instrumento.nombre}">
-                        Guitarra
-                    </h3>
-
-                    <p>
-                        <strong>Marca:</strong>
-
-                        <span th:text="${instrumento.marca}">
-                            Yamaha
-                        </span>
-                    </p>
-
-                    <p>
-                        <strong>Tipo:</strong>
-
-                        <span th:text="${instrumento.tipo}">
-                            Acústica
-                        </span>
-                    </p>
-
-                    <p>
-                        <strong>Valor:</strong>
-
-                        <span th:text="${instrumento.valor}">
-                            800000
-                        </span>
-                    </p>
-
-                </div>
+                <p>
+                    <strong>Valor:</strong>
+                    $
+                    <span th:text="${instrumento.valor}">
+                        800000
+                    </span>
+                </p>
 
             </div>
 
         </div>
 
-
-        <!-- ============================= -->
-        <!-- SIN INSTRUMENTOS -->
-        <!-- ============================= -->
-
-        <div class="sin-instrumentos"
-             th:if="${manipulador.instrumentos == null or manipulador.instrumentos.isEmpty()}">
-
-            Este manipulador no tiene instrumentos asignados.
-
-        </div>
-
-
-        <!-- ============================= -->
-        <!-- ACCIONES POLIMÓRFICAS -->
-        <!-- ============================= -->
 
         <div class="acciones">
 
@@ -243,10 +251,8 @@
 
                 <h3>🎼 Afinar</h3>
 
-                <p th:text="${manipulador.afinar(manipulador.instrumentos)}">
-
+                <p th:text="${musico.afinar(musico.instrumentos)}">
                     Mensaje de afinación
-
                 </p>
 
             </div>
@@ -256,10 +262,8 @@
 
                 <h3>🎵 Tocar melodía</h3>
 
-                <p th:text="${manipulador.tocarMelodia(manipulador.instrumentos)}">
-
+                <p th:text="${musico.tocarMelodia(musico.instrumentos)}">
                     Mensaje de melodía
-
                 </p>
 
             </div>
@@ -269,10 +273,8 @@
 
                 <h3>🎸 Improvisar</h3>
 
-                <p th:text="${manipulador.improvisar(manipulador.instrumentos)}">
-
+                <p th:text="${musico.improvisar(musico.instrumentos)}">
                     Mensaje de improvisación
-
                 </p>
 
             </div>
@@ -280,18 +282,6 @@
         </div>
 
     </div>
-
-
-    <!-- ============================= -->
-    <!-- ENLACE AL PUNTO 1 -->
-    <!-- ============================= -->
-
-    <a class="boton"
-       href="/punto1">
-
-        Ver Punto 1
-
-    </a>
 
 </div>
 
