@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Punto 2</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 24px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+        }
+
+        code,
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>Punto 2. ListIterator e Iterator</h1>
+
+        <h2>Stack recorrido con ListIterator</h2>
+
+        <p>
+            se usaron listIterator() para recorrer el Stack
+            y mostrar los atributos de cada objeto.
+        </p>
+
+        <ol>
+            <li th:each="linea : ${stackIterado}">
+                <code th:text="${linea}"></code>
+            </li>
+        </ol>
+
+        <h2>Deque recorrido con Iterator</h2>
+
+        <p>
+            se usaron iterator() para recorrer la colección
+            de la agrupación.
+        </p>
+
+        <ol>
+            <li th:each="linea : ${dequeIterado}">
+                <code th:text="${linea}"></code>
+            </li>
+        </ol>
+
+        <p>
+            <a href="/">← Volver al inicio</a>
+        </p>
+
+    </main>
+
+</body>
+</html>

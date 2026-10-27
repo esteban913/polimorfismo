@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Punto 1</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 24px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+        }
+
+        code,
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>Punto 1. Enums, Instrumento y AgrupacionMusical</h1>
+
+        <p class="note">
+            EnumInstrumento tiene cinco opciones y Categoria tiene tres.
+            Los cinco instrumentos comparten GUITARRA y CUERDA,
+            y cada uno contiene su Stack<Integer> conteo.
+        </p>
+
+        <h2>Los cinco objetos del Stack</h2>
+
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>EnumInstrumento</th>
+                <th>Categoria</th>
+                <th>Stack conteo</th>
+            </tr>
+
+            <tr th:each="i : ${instrumentos}">
+                <td th:text="${i.nombre}"></td>
+                <td th:text="${i.marca}"></td>
+                <td th:text="${i.tipo}"></td>
+                <td th:text="${i.valor}"></td>
+                <td th:text="${i.enumInstrumento}"></td>
+                <td th:text="${i.categoria}"></td>
+                <td th:text="${i.conteo}"></td>
+            </tr>
+        </table>
+
+        <h2>Clase contenedora</h2>
+
+        <p>
+            Nombre:
+            <b th:text="${agrupacion.nombre}"></b>;
+
+            director:
+            <b th:text="${agrupacion.director}"></b>;
+
+            enums:
+            <b th:text="${agrupacion.enumInstrumento}"></b>
+            /
+            <b th:text="${agrupacion.categoria}"></b>.
+        </p>
+
+        <p>
+            Su Deque contiene
+            <b th:text="${agrupacion.instrumentos.size()}"></b>
+            objetos Instrumento.
+        </p>
+
+        <p>
+            <a href="/">← Volver al inicio</a>
+        </p>
+
+    </main>
+
+</body>
+</html>

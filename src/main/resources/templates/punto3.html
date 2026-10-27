@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Punto 3</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 24px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+        }
+
+        code,
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>Punto 3. Programación funcional con Deque</h1>
+
+        <p class="note">
+            Se filtra el Deque mediante stream() y filter(),
+            usando el enum definido
+            <b th:text="${enumBuscado}"></b>.
+        </p>
+
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Enum</th>
+                <th>Categoria</th>
+                <th>Conteo</th>
+            </tr>
+
+            <tr th:each="i : ${instrumentos}">
+                <td th:text="${i.nombre}"></td>
+                <td th:text="${i.enumInstrumento}"></td>
+                <td th:text="${i.categoria}"></td>
+                <td th:text="${i.conteo}"></td>
+            </tr>
+        </table>
+
+        <p>
+            Total filtrado:
+            <b th:text="${instrumentos.size()}"></b>
+        </p>
+
+        <p>
+            <a href="/">← Volver al inicio</a>
+        </p>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Polimorfismo musical</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 32px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 7px 7px 7px 0;
+        }
+
+        .card {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 9px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>
+            Proyecto de polimorfismo: instrumentos musicales
+        </h1>
+
+        <p>
+            Proyecto Spring Boot con las interfaces, clases y cinco
+            puntos de colecciones y programación funcional.
+        </p>
+
+        <div class="card">
+            <b>Agrupación:</b>
+
+            <span th:text="${agrupacion.nombre}">
+                Ensamble
+            </span>
+
+            ·
+
+            <span th:text="${agrupacion.director}">
+                Director
+            </span>
+        </div>
+
+        <a href="/punto1">
+            Punto 1 · Clases y colecciones
+        </a>
+
+        <a href="/punto2">
+            Punto 2 · Iteradores
+        </a>
+
+        <a href="/punto3">
+            Punto 3 · Filtro funcional
+        </a>
+
+        <a href="/punto4">
+            Punto 4 · Function
+        </a>
+
+        <a href="/punto5">
+            Punto 5 · verTotales
+        </a>
+
+        <h2>Instrumentos y polimorfismo existente</h2>
+
+        <div th:each="m : ${manipuladores}" class="card">
+
+            <h3 th:text="${m.nombre}">
+                Músico
+            </h3>
+
+            <p th:text="${m.afinar(m.instrumentos)}">
+                Afinando
+            </p>
+
+            <p th:text="${m.tocarMelodia(m.instrumentos)}">
+                Melodía
+            </p>
+
+            <p th:text="${m.improvisar(m.instrumentos)}">
+                Improvisación
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

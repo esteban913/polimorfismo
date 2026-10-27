@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Punto 4</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 24px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+        }
+
+        code,
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>Punto 4. Function&lt;T,R&gt;</h1>
+
+        <p class="note">
+            La función recibe un Instrumento y retorna la suma
+            de todos los Integer de su Stack conteo.
+            Tipo de función:
+            <code th:text="${funcion}"></code>.
+        </p>
+
+        <table>
+            <tr>
+                <th>Instrumento</th>
+                <th>Suma del Stack conteo</th>
+            </tr>
+
+            <tr th:each="entrada : ${totales}">
+                <td th:text="${entrada.key}"></td>
+                <td th:text="${entrada.value}"></td>
+            </tr>
+        </table>
+
+        <p>
+            Implementación usada:
+
+            <code>
+                instrumento -&gt; instrumento.getConteo().stream().mapToInt(Integer::intValue).sum()
+            </code>
+        </p>
+
+        <p>
+            <a href="/">← Volver al inicio</a>
+        </p>
+
+    </main>
+
+</body>
+</html>

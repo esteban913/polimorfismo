@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Punto 5</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 24px;
+            color: #172033;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+        }
+
+        code,
+        pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .note {
+            background: #eff6ff;
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="wrap">
+
+        <h1>Punto 5. Método verTotales</h1>
+
+        <p class="note">
+            Cada objeto Instrumento llama a
+            verTotales(Function&lt;Instrumento, Integer&gt;),
+            y el método ejecuta la función recibida para mostrar
+            la suma de su Stack.
+        </p>
+
+        <table>
+            <tr>
+                <th>Instrumento</th>
+                <th>Total de conteo</th>
+            </tr>
+
+            <tr th:each="entrada : ${totales}">
+                <td th:text="${entrada.key}"></td>
+                <td th:text="${entrada.value}"></td>
+            </tr>
+        </table>
+
+        <p>
+            Los totales también se imprimen en la consola
+            de Spring Boot.
+        </p>
+
+        <p>
+            <a href="/">← Volver al inicio</a>
+        </p>
+
+    </main>
+
+</body>
+</html>
